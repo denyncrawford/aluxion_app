@@ -1,0 +1,11 @@
+[
+  {
+    "id": 123,
+    "first": "Javi ",
+    "last": user.name.last,
+    "picture": user.picture.medium,
+    "toHome": user.location.street,
+    "toAluxion": user.location.city,
+    "position": user.login.username,
+  }
+]
