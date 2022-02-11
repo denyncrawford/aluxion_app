@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer components {
+  
   .input-mixin {
     @apply bg-transparent focus:outline-hidden focus:ring-0 border-0;
   }
@@ -54,6 +55,19 @@
   * {
     font-family: "San Francisco Display Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
     @apply text-white tracking-wide;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    @apply bg-white/30 border-2 border-main;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-main w-7 mx-2;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
   }
 
   h1 {
