@@ -36,7 +36,7 @@ onMounted(() => {
     <main class="mx-20">
       <div
         :class="[isScrolled ? 'pt-16' : 'pt-60']"
-        class="flex anchor w-full transition-all delay-200 duration-500 items-baseline"
+        class="flex anchor overscroll-none w-full transition-all delay-200 duration-500 items-baseline"
       >
         <h1
           :class="[isScrolled ? 'text-5xl' : 'text-8xl']"
@@ -57,7 +57,7 @@ onMounted(() => {
             before
             group
             relative
-            w-8xl
+            w-9/12
             flex flex-1
             ml-auto
             items-center

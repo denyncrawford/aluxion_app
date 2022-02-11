@@ -3,7 +3,7 @@ import Navigation from './components/MainNavigation.vue'
 </script>
 
 <template>
-  <main class="min-h-screen flex flex-col bg-main">
+  <main class="min-h-screen relative overscroll-none flex flex-col bg-main">
     <Navigation class="sticky top-0" />
     <div>
       <router-view />
