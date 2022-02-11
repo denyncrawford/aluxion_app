@@ -6,7 +6,7 @@ let isFocus = ref(false)
 let isScrolled = ref(false)
 onMounted(() => {
   window.addEventListener('scroll', (e) => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 2) {
       isScrolled.value = true
     } else {
       isScrolled.value = false
@@ -16,7 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="bg-main w-full fixed top-0">
+  <header class="anchor z-50 pb-12 bg-main w-full sticky top-0">
     <nav class="w-full p-20 flex items-center justify-center">
       <router-link to="/">
         <img :src="aluxionLogo" />
@@ -35,8 +35,8 @@ onMounted(() => {
     </nav>
     <main class="mx-20">
       <div
-        :class="[isScrolled ? 'pt-16' : 'pt-64']"
-        class="flex w-full transition-all delay-200 duration-500 items-baseline"
+        :class="[isScrolled ? 'pt-16' : 'pt-60']"
+        class="flex anchor w-full transition-all delay-200 duration-500 items-baseline"
       >
         <h1
           :class="[isScrolled ? 'text-5xl' : 'text-8xl']"
@@ -107,4 +107,9 @@ onMounted(() => {
 .after {
   @apply after:bg-white after:w-full after:h-[.1px] after:absolute after:bottom-1 after:left-0 before:-left-full;
 }
+
+.anchor {
+  overflow-anchor: none;
+}
+
 </style>

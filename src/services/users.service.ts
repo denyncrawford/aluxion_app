@@ -8,7 +8,7 @@ export const getUsers = async (size: number) => {
     id: user.login.uuid,
     first: user.name.first,
     last: user.name.last,
-    picture: user.picture.medium,
+    picture: user.picture.large,
     toHome: user.location.street,
     toAluxion: user.location.city,
     position: user.login.username,

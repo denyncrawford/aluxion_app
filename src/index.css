@@ -56,4 +56,8 @@
     @apply text-white tracking-wide;
   }
 
+  h1 {
+    @apply opacity-90;
+  }
+
 }

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 123,
+    "first": "Javi",
+    "last": "",
+    "picture": "https://randomuser.me/api/portraits/men/66.jpg",
+    "toHome": "288",
+    "toAluxion": "681",
+    "position": "CEO & Founder"
+  },
+  {
+    "id": 124,
+    "first": "Aluxioner",
+    "last": "01",
+    "picture": "https://randomuser.me/api/portraits/women/13.jpg",
+    "toHome": "494",
+    "toAluxion": "3378",
+    "position": "Frontend developer"
+  },
+  {
+    "id": 125,
+    "first": "Aluxioner",
+    "last": "02",
+    "picture": "https://randomuser.me/api/portraits/men/89.jpg",
+    "toHome": "1229",
+    "toAluxion": "2908",
+    "position": "Backend developer"
+  },
+  {
+    "id": 126,
+    "first": "Aluxioner",
+    "last": "03",
+    "picture": "https://randomuser.me/api/portraits/men/21.jpg",
+    "toHome": "2710",
+    "toAluxion": "1688",
+    "position": "Mobile developer"
+  },
+  {
+    "id": 127,
+    "first": "Aluxioner",
+    "last": "04",
+    "picture": "https://randomuser.me/api/portraits/men/57.jpg",
+    "toHome": "85",
+    "toAluxion": "59",
+    "position": "Head of Backend"
+  },
+  {
+    "id": 128,
+    "first": "Aluxioner",
+    "last": "05",
+    "picture": "https://randomuser.me/api/portraits/women/21.jpg",
+    "toHome": "806",
+    "toAluxion": "189",
+    "position": "Designer"
+  }
+]
