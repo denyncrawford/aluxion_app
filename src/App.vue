@@ -4,8 +4,8 @@ import Navigation from './components/MainNavigation.vue'
 
 <template>
   <main class="min-h-screen relative overscroll-none flex flex-col bg-main">
-    <Navigation class="sticky top-0" />
-    <div>
+    <Navigation class="fixed top-0" />
+    <div class="relative flex-1 w-full pt-[664px]">
       <router-view />
     </div>
   </main>

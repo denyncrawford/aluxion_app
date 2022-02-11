@@ -38,8 +38,7 @@ onMounted(() => {
   users.fetchUsers(10)
   window.addEventListener('scroll', (e) => {
     let element = scrollComponent.value
-
-    if (element.getBoundingClientRect().bottom < window.innerHeight) {
+    if (element.getBoundingClientRect().bottom < window.innerHeight + 10) {
       users.fetchUsers(10)
     }
   })
@@ -47,7 +46,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="scrollComponent" class="mx-20 py-20">
+  <div ref="scrollComponent" class="px-20 bg-main py-20 absolute w-full">
     <user-modal @close="modalState.active = false" :state="modalState" />
     <section>
       <h3 class="text-gray-500 font-bold">Team</h3>
