@@ -20,7 +20,9 @@ const modalState = reactive({
 // Watchers
 
 watch(modalState, (value) => {
-  value.active ? document.body.classList.add('overflow-hidden') : document.body.classList.remove('overflow-hidden')
+  value.active
+    ? document.body.classList.add('overflow-hidden')
+    : document.body.classList.remove('overflow-hidden')
 })
 
 // Refs
@@ -38,8 +40,8 @@ function openModal(user: any) {
 
 onMounted(() => {
   users.fetchUsers(10)
-  window.addEventListener('scroll', (e) => {    
-    if (route.name !== 'Home') return;
+  window.addEventListener('scroll', (e) => {
+    if (route.name !== 'Home') return
     let element = scrollComponent.value
     if (element.getBoundingClientRect().bottom < window.innerHeight + 10) {
       users.fetchUsers(10)

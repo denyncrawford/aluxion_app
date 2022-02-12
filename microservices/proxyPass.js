@@ -6,8 +6,8 @@ config();
 
 const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
-const baseUrl = "https://openapi.emtmadrid.es/v1";
-const loginUrl = `${baseUrl}/mobilitylabs/user/login`;
+const baseUrl = "https://openapi.emtmadrid.es";
+const loginUrl = `${baseUrl}/v1/mobilitylabs/user/login`;
 const token = {
   accessToken: "",
   expirationDate: new Date().getTime(),
@@ -15,6 +15,7 @@ const token = {
 
 const app = express();
 app.use(json());
+app.set('json spaces', 2)
 
 // Login method
 
@@ -36,19 +37,21 @@ const login = async () => {
 // Main router
 
 app.use("/api", async (req, res) => {
-  const { url } = req;
+  const { url, method } = req;
   const { accessToken } = token;
   try {
     await login();
     const { data } = await axios({
-      method: "get",
+      method,
       url: `${baseUrl}${url}`,
       headers: {
         accessToken,
       },
+      data: req.body || undefined,
     });
     res.json(data);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: error.message });
   }
 });
