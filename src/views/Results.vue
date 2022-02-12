@@ -1,3 +1,23 @@
+
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { fetchStop } from '../services/emt.service'
+
+const route = useRoute();
+
+onMounted(async () => {
+  console.log(route.params.id);
+  try {
+    const stop = await fetchStop(route.params.id as string);
+    console.log(stop);
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+</script>
+
 <template>
   <div class="absolute w-full h-full">
     <div
@@ -12,7 +32,7 @@
         lg:py-16 lg:px-8
       "
     >
-      <h2 class="text-8xl text-center font-extrabold tracking-tight max-w-lg">
+      <h2 class="text-8xl text-gray-400 opacity-90 text-center font-extrabold tracking-tight max-w-lg">
         Sorry but we can't find the stop you are looking for.
         <div class="my-3"></div>
       </h2>

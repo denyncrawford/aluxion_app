@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createSSRApp } from 'vue'
 import { router } from './router';
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 import { HiSearch } from "oh-vue-icons/icons";
@@ -12,7 +12,7 @@ import './index.css'
 
 addIcons(HiSearch);
 
-const app = createApp(App);
+const app = createSSRApp(App);
 
 app.use(router);
 app.use(createPinia());
