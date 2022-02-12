@@ -1,9 +1,19 @@
 <script setup lang='ts'>
-import aluxionLogo from '../assets/aluxion.svg'
-import SearchIcon from '../components/utils/SearchIcon.vue'
+// Declarations
 import { ref, onMounted } from 'vue'
-let isFocus = ref(false)
+import { useRouter } from 'vue-router'
+import { useStore } from '../stores/navbars.store'
+import aluxionLogo from '../assets/aluxion.svg'
+import SearchBar from './SearchBar.vue'
+
+// States
+
 let isScrolled = ref(false)
+const router = useRouter();
+const navbars = useStore();
+
+// Hooks
+
 onMounted(() => {
   window.addEventListener('scroll', (e) => {
     if (window.scrollY > 100) {
@@ -16,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="anchor z-50 pb-12 bg-main w-full">
+  <header class="anchor pb-12 bg-main w-full">
     <nav class="w-full p-20 flex items-center justify-center">
       <router-link to="/">
         <img :src="aluxionLogo" />
@@ -52,38 +62,7 @@ onMounted(() => {
         >
           Don't be late, aluxioner
         </h1>
-        <div
-          class="
-            before
-            group
-            relative
-            w-9/12
-            flex flex-1
-            ml-auto
-            items-center
-            text-gray-500
-            mt-auto
-            overflow-hidden
-            max-w-md
-          "
-          :class="{ after: isFocus }"
-        >
-          <input
-            @focus="isFocus = true"
-            @blur="isFocus = false"
-            class="
-              input-mixin
-              w-full
-              text-white
-              transition-colors
-              p-0
-              focus:placeholder-white
-            "
-            placeholder="¿Cuál es tu parada?"
-            type="text"
-          />
-          <SearchIcon class="input-icon w-5 transition-colors fill-gray-500" />
-        </div>
+        <SearchBar/>
       </div>
     </main>
   </header>
@@ -93,21 +72,6 @@ onMounted(() => {
 .liMenu {
   @apply ml-28 text-white tracking-wider;
 }
-
-.input-mixin:focus + .input-icon {
-  @apply fill-white;
-}
-
-.before {
-  @apply before:bg-gray-500 before:w-full before:h-[.1px] 
-  before:absolute before:bottom-1 before:left-0 after:left-full 
-  after:duration-500 before:duration-500 before:transition-all after:transition-all;
-}
-
-.after {
-  @apply after:bg-white after:w-full after:h-[.1px] after:absolute after:bottom-1 after:left-0 before:-left-full;
-}
-
 .anchor {
   overflow-anchor: none;
 }

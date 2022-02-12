@@ -10,7 +10,7 @@ module.exports = {
         sans: ['"San Francisco Display"', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        main: '#091E42',
+        main: '#091E42'
       },
     },
   },

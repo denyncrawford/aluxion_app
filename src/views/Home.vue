@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { onMounted, ref, reactive, watch } from 'vue'
 import { useStore } from '../stores/users.store'
+import { useRoute } from 'vue-router'
 import Aluxioner from '../components/Aluxioner.vue'
 import UserModal from '../components/UserModal.vue'
 
 // States
 
 const users = useStore()
+const route = useRoute()
 const modalState = reactive({
   data: {
     toHome: '',
@@ -36,7 +38,8 @@ function openModal(user: any) {
 
 onMounted(() => {
   users.fetchUsers(10)
-  window.addEventListener('scroll', (e) => {
+  window.addEventListener('scroll', (e) => {    
+    if (route.name !== 'Home') return;
     let element = scrollComponent.value
     if (element.getBoundingClientRect().bottom < window.innerHeight + 10) {
       users.fetchUsers(10)
