@@ -54,7 +54,7 @@
 
   * {
     font-family: "San Francisco Display Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    @apply text-white tracking-wide;
+    @apply text-white tracking-wider;
   }
 
   *::-webkit-scrollbar-thumb {
@@ -68,10 +68,11 @@
 
   *::-webkit-scrollbar {
     width: 10px;
+    @apply w-0 md:w-auto
   }
 
   h1 {
-    @apply opacity-90;
+    @apply opacity-90 tracking-wide;
   }
 
 }

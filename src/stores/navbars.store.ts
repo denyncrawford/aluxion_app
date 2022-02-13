@@ -4,6 +4,7 @@ export const useStore = defineStore('navbars', {
   state() {
     return {
       isMainNavbarOpen: true,
+      isGridMode: true,
     }
   },
 })

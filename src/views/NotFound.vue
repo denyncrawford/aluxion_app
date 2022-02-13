@@ -13,7 +13,8 @@
     >
       <h2
         class="
-          text-8xl text-gray-400
+          text-5xl
+          md:text-8xl text-gray-400
           opacity-90
           text-center
           font-extrabold

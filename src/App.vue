@@ -28,8 +28,8 @@ router.beforeEach(async (to, from, next) => {
 <template>
   <main class="min-h-screen relative overscroll-none flex flex-col bg-main">
     <Navigation :class="[navbars.isMainNavbarOpen ? 'top-0' : '-top-full']" class="fixed z-20 transition-all duration-1000" />
-    <div :class="[navbars.isMainNavbarOpen ? 'pt-[664px]' : 'pt-0']" class="flex-1 w-full transition-all duration-500">
-      <router-view v-slot="{ Component }">
+    <div :class="[navbars.isMainNavbarOpen ? 'md:pt-[664px] pt-[504px]' : 'pt-0']" class="flex-1 w-full transition-all duration-500">
+      <router-view :key="$route.fullPath" v-slot="{ Component }">
         <transition name="slide">
           <component :is="Component" />
         </transition>

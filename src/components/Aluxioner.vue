@@ -5,7 +5,7 @@ defineProps(['user'])
 <template>
   <div class="w-full transition-all hover:scale-105 duration-500 cursor-pointer">
     <div
-      class="w-full mix-blend-luminosity bg-contain bg-main"
+      class="w-full h-52 md:h-auto mix-blend-luminosity bg-no-repeat bg-cover bg-center bg-main"
       :style="{ backgroundImage: `url(${user.picture})` }"
     >
       <img class="w-full opacity-0" :src="user.picture" />

@@ -56,4 +56,4 @@ app.use("/api", async (req, res) => {
   }
 });
 
-app.listen(3001, () => console.log("Listening on port 3001"));
+app.listen(3001, () => console.log("Micro Service listening on port 3001"));

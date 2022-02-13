@@ -51,12 +51,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="scrollComponent" class="px-20 bg-main py-20 absolute w-full">
+  <div ref="scrollComponent" class="px-5 md:px-20 bg-main py-20 absolute w-full">
     <user-modal @close="modalState.active = false" :state="modalState" />
     <section>
       <h3 class="text-gray-500 font-bold">Team</h3>
       <h1 class="text-white mt-2 text-4xl">Aluxioners</h1>
-      <div class="grid w-full gap-6 grid-cols-6 mt-12">
+      <div class="grid w-full gap-5 md:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mt-12">
         <transition-group appear name="fade-card">
           <aluxioner
             :key="user.id"

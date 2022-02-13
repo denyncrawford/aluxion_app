@@ -5,8 +5,8 @@ export const fetchStopData = async (stopId: string): Promise<unknown> => {
   const { data: full, data: { data } } = await axios(
     `${host}/api/v1/transport/busemtmad/stops/${stopId}/detail/`,
   );
-  if (data && full.code == '80') return fetchStopData(stopId);
-  return data;
+  if (full.code == '80') return fetchStopData(stopId);
+  return data.length ? data[0].stops[0] : [];
 };
 
 export const fetchStopArrivals = async (stopId: string): Promise<unknown> => {
