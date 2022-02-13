@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-  
   .input-mixin {
     @apply bg-transparent focus:outline-hidden focus:ring-0 border-0;
   }

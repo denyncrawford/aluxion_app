@@ -44,7 +44,7 @@ const navigate = async (to: string) => {
   <transition name="fadeIn">
     <div
       v-if="props.state.active"
-      class="fixed backdrop-blur-sm top-0 left-0 bg-main/80 z-50 w-full h-full"
+      class="fixed px-5 backdrop-blur-sm top-0 left-0 bg-main/80 z-50 w-full h-full"
     >
       <div class="w-full h-full relative flex items-center justify-center">
         <div
@@ -54,12 +54,12 @@ const navigate = async (to: string) => {
         <transition name="zoom">
           <div
             v-show="isWhiteActive"
-            class="bg-white px-32 py-10 opacity-90 flex flex-col text-center"
+            class="bg-white md:px-32 py-10 opacity-90 flex flex-col text-center"
           >
             <div class="mb-10">
               <button class="text-main" @click="close">cerrar</button>
             </div>
-            <h1 class="text-main text-3xl font-black">
+            <h1 class="text-main md:text-3xl text-2xl font-[sans-serif] font-black">
               Hey {{ props.state.data.first }}, <br />
               ¿Cuál es tu rumbo, aluxioner?
             </h1>
@@ -69,7 +69,7 @@ const navigate = async (to: string) => {
               </button>
               <button
                 @click="navigate(props.state.data.toAluxion)"
-                class="button ml-[83px]"
+                class="button ml-7 md:ml-[83px]"
               >
                 aluxion
               </button>

@@ -51,9 +51,9 @@ onMounted(() => {
       <router-link to="/">
         <img :src="aluxionLogo" />
       </router-link>
-      <transition name="fadeUp">
+      <transition name="fadeUp" appear>
         <ul key="nav1"
-          v-if="!isMobile || isMenuOpen"
+          v-show="!isMobile || isMenuOpen"
           class="
             absolute
             md:relative
@@ -158,10 +158,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
-.fadeUp-enter, .fadeUp-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 
 .fadeUp-enter-active {
   animation: fadeInUp;

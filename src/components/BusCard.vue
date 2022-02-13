@@ -39,7 +39,7 @@ const printDistance = computed(() => {
 
 <template>
   <!-- Init of Card -->
-  <div class="w-full grid-item">
+  <div class="w-full grid-item origin-left">
     <div
       :class="[selected ? 'bg-white' : 'bg-secondary']"
       class="

@@ -50,4 +50,34 @@ router.beforeEach(async (to, from, next) => {
   animation-duration: 1s;
 }
 
+* .gm-style-iw {
+	width: auto !important;
+	top: 15px !important;
+	left: 0px !important;
+  transform: none!important; 
+  overflow: initial;
+	background-color: transparent !important;
+	box-shadow: none !important;
+	border: none !important;
+	border-radius: 0px !important;
+}
+
+.gm-style .gm-style-iw-c {
+  padding: 0px!important;
+  overflow: unset !important;
+  position: relative !important;
+}
+
+* .gm-style-iw-d {
+  overflow: hidden!important;
+}
+
+.gm-style .gm-style-iw-t::after {
+  display: none!important;
+}
+
+.gm-ui-hover-effect, .gm-ui-hover-effect:hover {
+  opacity: 0;
+}
+
 </style>

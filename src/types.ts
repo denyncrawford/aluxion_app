@@ -29,4 +29,17 @@ export interface Arrivals {
   StopInfo: Stop[];
 }
 
-export type ArrivalMerge = { [key: string]: Arrive };
+export interface ArrivalMerge { 
+  line: number;
+  Arrivals: Arrive[];
+};
+
+export interface FormattedArrival {
+  bus: number;
+  position: {
+    lat: number;
+    lng: number;
+  },
+  destination: string;
+  line: string;
+}

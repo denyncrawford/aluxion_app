@@ -30,7 +30,7 @@ const showMSearch = () => {
 
   if (!isMobile.value) return search()
   isMobileSearch.value = true
-  if (input2.value) input2.value.focus()
+  if (input2.value) input2.focus()
 }
 const hideMSearch = () => {
   isMobileSearch.value = false

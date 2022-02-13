@@ -1,7 +1,16 @@
 
 # Aluxion project
 
-> Please, before deploying you must provide environment variables:
+This site is made with VueJS and ExpressJS.
 
-    * EMT_PASSKEY
-    * EMT_X
+> Please, provide environment variables on deploy:
+
+    * EMAIL (for emt)
+    * PASSWORD (for emt)
+    * API_URL (optional) (default: localhost:3001)
+
+# Deploy
+
+    * Make sure the API_URL is correct.
+    * Deploy site to netlify or any other static site hosting.
+    * Deliver the microservice to heroku or any other PaaS.
