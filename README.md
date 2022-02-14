@@ -8,6 +8,7 @@ This site is made with VueJS and ExpressJS.
     * EMAIL (for emt)
     * PASSWORD (for emt)
     * API_URL (optional) (default: localhost:3001)
+    * SERVICE_PORT (optional) (default: 3000)
 
 ## Build 
 

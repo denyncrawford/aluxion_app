@@ -26,6 +26,7 @@ import MapIcon from '../components/icons/MapIcon.vue'
 import { useStore } from '../stores/navbars.store'
 import mapPointSprite from '../assets/mapPointSprite.png'
 import mapPointSpriteOpen from '../assets/mapPointSpriteOpen.png'
+import mapPointSpritePlaceholder from '../assets/mapPointSpritePlaceholder.png'
 import { isMobile } from '../plugins/breakpoints'
 
 // States
@@ -112,11 +113,13 @@ const formatArrivals = computed(() => {
   })
 })
 
-const getLineData = (arrival: Arrive) => stop.value.lines.find((l: any) => l.label === arrival.line)
+const getLineData = (arrival: Arrive) =>
+  stop.value.lines.find((l: any) => l.label === arrival.line)
 
 const isSelected = computed(() => (bus: number) => selectedCard.value === bus)
 const isToolTipVisible = ref(false)
 const isToolTipGapVisible = ref(false)
+const isHaloVisible = ref(false)
 
 // Methods
 
@@ -175,6 +178,9 @@ const goBack = async () => {
 watch(selectedCard, async (val) => {
   isToolTipVisible.value = false
   isToolTipGapVisible.value = false
+  isHaloVisible.value = false
+  await new Promise((resolve) => setTimeout(resolve, 500))
+  isHaloVisible.value = true
   await new Promise((resolve) => setTimeout(resolve, 500))
   isToolTipVisible.value = true
   await new Promise((resolve) => setTimeout(resolve, 500))
@@ -405,9 +411,7 @@ onMounted(async () => {
                   :position="m.position"
                   :clickable="true"
                   :icon="{
-                    url: isSelected(m.bus)
-                      ? mapPointSpriteOpen
-                      : mapPointSprite,
+                    url: mapPointSpritePlaceholder,
                     scaledSize: {
                       width: isSelected(m.bus) ? 25 : 20,
                       height: isSelected(m.bus) ? 25 : 20,
@@ -415,6 +419,28 @@ onMounted(async () => {
                   }"
                   @click="performSelect(m)"
                 >
+                  <GMapInfoWindow :closeclick="true" :opened="true">
+                    <div
+                      @click="performSelect(m)"
+                      class="
+                        w-[18px]
+                        absolute
+                        -left-3
+                        -top-2
+                        cursor-pointer
+                        h-[18px]
+                        rounded-full
+                        bg-main
+                        flex
+                        items-center
+                        justify-center
+                      "
+                    >
+                      <div :class="[isSelected(m.bus) && isHaloVisible ? 'scale-110' : ' scale-50']" class="bg-transparent absolute duration-500 transition-all rounded-full border border-main w-[28px] h-[28px]" >
+
+                      </div>
+                    </div>
+                  </GMapInfoWindow>
                   <GMapInfoWindow
                     :closeclick="true"
                     :opened="isSelected(m.bus)"
@@ -426,7 +452,7 @@ onMounted(async () => {
                           !isSelected(m.bus) ? 'opacity-0' : 'opacity-100',
                         ]"
                         :key="m.bus + i"
-                        class="flex absolute -top-12 -left-3"
+                        class="flex absolute -top-14 -left-4"
                       >
                         <div
                           class="
