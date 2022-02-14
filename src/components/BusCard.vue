@@ -114,6 +114,7 @@ const printDistance = computed(() => {
                 ml-2
                 text-sm text-[#FFC121]
                 font-light font-[sans-serif]
+                whitespace-nowrap
               "
             >
               {{ Math.trunc(arrival.estimateArrive / 60) }} min
@@ -130,6 +131,7 @@ const printDistance = computed(() => {
                 ml-2
                 text-sm text-[#2DC8A6]
                 font-light font-[sans-serif]
+                whitespace-nowrap
               "
             >
               {{ printDistance }}

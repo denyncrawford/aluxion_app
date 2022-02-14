@@ -2,8 +2,11 @@
   "name": "cuntlink",
   "version": "0.0.0",
   "scripts": {
+    "dev:service": "node -r esm microservices/proxyPass.js",
+    "dev:vite": "vite --host",
     "dev": "concurrently --kill-others \"node -r esm microservices/proxyPass.js\" \"vite --host\"",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
+    "ts:check": "vue-tsc --noEmit",
     "preview": "vite preview",
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore ."
   },
@@ -16,6 +19,7 @@
     "animate.css": "^4.1.1",
     "axios": "^0.25.0",
     "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "esm": "^3.2.25",
     "express": "^4.17.2",

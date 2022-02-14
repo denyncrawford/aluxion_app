@@ -1,11 +1,13 @@
 import express, { json } from "express";
 import axios from "axios";
+import cors from 'cors';
 import { config } from "dotenv";
 
 config();
 
 const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
+const port = process.env.SERVICE_PORT || 3000;
 const baseUrl = "https://openapi.emtmadrid.es";
 const loginUrl = `${baseUrl}/v1/mobilitylabs/user/login`;
 const token = {
@@ -15,6 +17,7 @@ const token = {
 
 const app = express();
 app.use(json());
+app.use(cors());
 app.set('json spaces', 2)
 
 // Login method
@@ -56,4 +59,4 @@ app.use("/api", async (req, res) => {
   }
 });
 
-app.listen(3001, () => console.log("Micro Service listening on port 3001"));
+app.listen(port, () => console.log(`Micro Service listening on port ${port}!`));

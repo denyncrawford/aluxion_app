@@ -1,9 +1,8 @@
 <script setup lang="ts">
 // Declarations
-import { ref, computed, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import SearchIcon from './icons/SearchIcon.vue'
-import brakpoints from '../plugin/breakpoints'
 import { isMobile } from '../plugins/breakpoints'
 
 // States
@@ -12,7 +11,7 @@ const value = ref('')
 const isFocus = ref(false)
 const router = useRouter()
 const isMobileSearch = ref(false)
-const input2 = ref(null);
+const input2 = ref(null as HTMLInputElement | null);
 
 // Methods
 
@@ -30,7 +29,7 @@ const showMSearch = () => {
 
   if (!isMobile.value) return search()
   isMobileSearch.value = true
-  if (input2.value) input2.focus()
+  if (input2.value) input2.value.focus()
 }
 const hideMSearch = () => {
   isMobileSearch.value = false

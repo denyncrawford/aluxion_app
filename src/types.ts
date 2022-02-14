@@ -17,7 +17,7 @@ export interface Arrive {
 }
 
 export interface Stop {
-  lines?: [Record<string, string | number>];
+  lines: [Record<string, string | number>];
   stopId: string;
   stopName: string;
   geometry: Geometry;

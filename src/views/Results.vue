@@ -16,6 +16,7 @@ import type {
 import NotFound from './NotFound.vue'
 import { useRoute, useRouter } from 'vue-router'
 import SNav from '../components/SecondaryNavigation.vue'
+import MobileNavigation from '../components/MobileNavigation.vue'
 import BusCard from '../components/BusCard.vue'
 import BusIcon from '../components/icons/BusIcon.vue'
 import BackIcon from '../components/icons/BackIcon.vue'
@@ -53,6 +54,7 @@ let stop = ref({
     coordinates: [0, 0],
   },
   Direction: '',
+  lines: [] as any,
 } as Stop)
 
 const arrivalsInfo = ref([] as Arrivals[])
@@ -109,6 +111,8 @@ const formatArrivals = computed(() => {
     }
   })
 })
+
+const getLineData = (arrival: Arrive) => stop.value.lines.find((l: any) => l.label === arrival.line)
 
 const isSelected = computed(() => (bus: number) => selectedCard.value === bus)
 const isToolTipVisible = ref(false)
@@ -281,7 +285,8 @@ onMounted(async () => {
           >
             <div class="sticky">
               <!-- Navigation -->
-              <SNav @unmount="unmount(500)" />
+              <SNav v-if="!isMobile" @unmount="unmount(500)" />
+              <MobileNavigation v-if="isMobile" @unmount="unmount(500)" />
             </div>
             <!-- Header and main title -->
             <header class="md:mx-20 mx-5 flex relative">
@@ -348,7 +353,7 @@ onMounted(async () => {
                     :key="arrival.bus"
                     :selected="isSelected(arrival.bus)"
                     :arrival="arrival"
-                    :lineData="stop.lines.find((l) => l.label === arrival.line)"
+                    :lineData="getLineData(arrival)"
                     v-for="arrival in block.arrivals"
                     class="col-span-1"
                   />
@@ -370,6 +375,7 @@ onMounted(async () => {
             duration-500
           "
         >
+          <!-- Back handler for full map view -->
           <div class="relative w-full h-full">
             <div
               v-if="isMobile"

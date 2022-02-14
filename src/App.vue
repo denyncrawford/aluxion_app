@@ -5,6 +5,7 @@
 import { useRouter } from 'vue-router'
 import { useStore } from './stores/navbars.store'
 import Navigation from './components/MainNavigation.vue'
+import GlobalMenu from './components/GlobalMenu.vue'
 
 // States
 
@@ -27,8 +28,9 @@ router.beforeEach(async (to, from, next) => {
 
 <template>
   <main class="min-h-screen relative overscroll-none flex flex-col bg-main">
+    <GlobalMenu/>
     <Navigation :class="[navbars.isMainNavbarOpen ? 'top-0' : '-top-full']" class="fixed z-20 transition-all duration-1000" />
-    <div :class="[navbars.isMainNavbarOpen ? 'md:pt-[664px] pt-[504px]' : 'pt-0']" class="flex-1 w-full transition-all duration-500">
+    <div :class="[navbars.isMainNavbarOpen ? 'lg:pt-[664px] pt-[454px]' : 'pt-0']" class="flex-1 w-full transition-all duration-500">
       <router-view :key="$route.fullPath" v-slot="{ Component }">
         <transition name="slide">
           <component :is="Component" />

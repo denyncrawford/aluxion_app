@@ -4,6 +4,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '../stores/navbars.store'
 import aluxionLogo from '../assets/aluxion.svg'
+import MobileNavigation from './MobileNavigation.vue'
 import SearchBar from './SearchBar.vue'
 import BurgerIcon from './icons/BurgerIcon.vue'
 import XIcon from './icons/XIcon.vue'
@@ -47,78 +48,77 @@ onMounted(() => {
 
 <template>
   <header class="anchor pb-12 bg-main w-full">
-    <nav class="w-full p-5 md:px-20 py-10 md:py-20 flex items-center">
+    <MobileNavigation v-if="isMobile"/>
+    <nav v-if="!isMobile" class="w-full p-5 md:px-20 py-10 md:py-20 flex items-center">
       <router-link to="/">
         <img :src="aluxionLogo" />
       </router-link>
-      <transition name="fadeUp" appear>
-        <ul key="nav1"
-          v-show="!isMobile || isMenuOpen"
-          class="
-            absolute
-            md:relative
-            mt-20
-            md:mt-0
-            text-center
-            pt-60
-            md:pt-0
-            flex-col
-            md:flex-row
-            bg-main
-            z-50
-            top-0
-            left-0
-            w-screen
-            md:h-auto md:w-auto
-            h-screen
-            flex
-            md:ml-auto
-            mr-10
-          "
-        >
-          <li class="liMenu md:py-0 py-5">
-            <router-link
-              @click="isMenuOpen = false"
-              class="md:text-sm text-2xl"
-              tag="h5"
-              to="/"
-              >metro</router-link
-            >
-          </li>
-          <li class="liMenu md:py-0 py-5">
-            <router-link
-              @click="isMenuOpen = false"
-              class="md:text-sm text-2xl"
-              tag="h5"
-              to="/"
-              >cercanías</router-link
-            >
-          </li>
-          <li class="liMenu md:py-0 py-5">
-            <router-link
-              @click="isMenuOpen = false"
-              class="md:text-sm text-2xl"
-              tag="h5"
-              to="/"
-              >carsharing</router-link
-            >
-          </li>
-        </ul>
-      </transition>
-      <div v-show="!isMenuOpen" class="md:hidden cursor-pointer ml-auto">
-        <BurgerIcon @click="openNav" />
-      </div>
-      <div v-show="isMenuOpen" class="md:hidden cursor-pointer ml-auto">
-        <XIcon @click="closeNav" />
-      </div>
+      <ul
+        key="nav1"
+        class="
+          absolute
+          md:relative
+          mt-20
+          md:mt-0
+          text-center
+          pt-60
+          md:pt-0
+          flex-col
+          md:flex-row
+          bg-main
+          z-50
+          top-0
+          left-0
+          w-screen
+          md:h-auto md:w-auto
+          h-screen
+          flex
+          md:ml-auto
+          mr-10
+        "
+      >
+        <li class="liMenu md:py-0 py-5">
+          <router-link
+            @click="isMenuOpen = false"
+            class="md:text-sm text-2xl"
+            tag="h5"
+            to="/"
+            >metro</router-link
+          >
+        </li>
+        <li class="liMenu md:py-0 py-5">
+          <router-link
+            @click="isMenuOpen = false"
+            class="md:text-sm text-2xl"
+            tag="h5"
+            to="/"
+            >cercanías</router-link
+          >
+        </li>
+        <li class="liMenu md:py-0 py-5">
+          <router-link
+            @click="isMenuOpen = false"
+            class="md:text-sm text-2xl"
+            tag="h5"
+            to="/"
+            >carsharing</router-link
+          >
+        </li>
+      </ul>
     </nav>
     <main
       class="
         mx-5
         relative
         md:mx-20
-        after:h-[1px] after:absolute after:-bottom-4 after:bg-gray-500 after:opacity-70
-        after:w-full after:z-10 md:after:opacity-0
+        after:h-[1px]
+        after:absolute
+        after:-bottom-4
+        after:bg-gray-500
+        after:opacity-70
+        after:w-full
+        after:z-10
+        md:after:opacity-0
       "
     >
       <div
@@ -158,7 +158,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
 .fadeUp-enter-active {
   animation: fadeInUp;
   animation-duration: 0.5ms;

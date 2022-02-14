@@ -27,7 +27,7 @@ watch(modalState, (value) => {
 
 // Refs
 
-const scrollComponent = ref(null)
+const scrollComponent = ref(null as HTMLElement | null)
 
 // Methods
 
@@ -43,7 +43,7 @@ onMounted(() => {
   window.addEventListener('scroll', (e) => {
     if (route.name !== 'Home') return
     let element = scrollComponent.value
-    if (element.getBoundingClientRect().bottom < window.innerHeight + 10) {
+    if (element && element.getBoundingClientRect().bottom < window.innerHeight + 10) {
       users.fetchUsers(10)
     }
   })
