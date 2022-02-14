@@ -2,10 +2,15 @@
   "name": "cuntlink",
   "version": "0.0.0",
   "scripts": {
-    "dev:service": "node -r esm microservices/proxyPass.js",
+    "dev:service": "node -r esm microservices/nodeProxyPass.js",
     "dev:vite": "vite --host",
-    "dev": "concurrently --kill-others \"node -r esm microservices/proxyPass.js\" \"vite --host\"",
-    "build": "vite build",
+    "dev": "concurrently --kill-others \"node -r esm microservices/nodeProxyPass.js\" \"vite --host\"",
+    "build:service:windows": "deno compile -A --unstable --target x86_64-pc-windows-msvc  --output dist/service_windows microservices/denoProxyPass.ts",
+    "build:service:linux": "deno compile -A --unstable --target x86_64-unknown-linux-gnu --output dist/service_linux microservices/denoProxyPass.ts",
+    "build:service:macos": "deno compile -A --unstable --target x86_64-apple-darwin --output dist/service_macos microservices/denoProxyPass.ts",
+    "build:service": "yarn build:service:windows && yarn build:service:linux && yarn build:service:macos",
+    "build:vite": "vite build",
+    "build": "yarn run build:vite && yarn run build:service",
     "ts:check": "vue-tsc --noEmit",
     "preview": "vite preview",
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore ."
