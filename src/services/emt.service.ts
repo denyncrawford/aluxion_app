@@ -1,5 +1,9 @@
 import axios from "axios";
-const host = import.meta.env.API_URL || "http://localhost:3000";
+
+console.log(import.meta.env.VITE_API_URL);
+
+
+const host = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 export const fetchStopData = async (stopId: string): Promise<unknown> => {
   const { data: full, data: { data } } = await axios(

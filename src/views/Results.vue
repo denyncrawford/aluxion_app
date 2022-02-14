@@ -436,7 +436,7 @@ onMounted(async () => {
                         justify-center
                       "
                     >
-                      <div :class="[isSelected(m.bus) && isHaloVisible ? 'scale-110' : ' scale-50']" class="bg-transparent absolute duration-500 transition-all rounded-full border border-main w-[28px] h-[28px]" >
+                      <div :class="[isSelected(m.bus) && isHaloVisible ? 'scale-110' : ' scale-50']" class="bg-transparent absolute transition-all rounded-full border border-main w-[28px] h-[28px]" >
 
                       </div>
                     </div>

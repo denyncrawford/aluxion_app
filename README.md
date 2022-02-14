@@ -7,7 +7,7 @@ This project is made with Vite, Vue3, TailwindCSS, Pinia and ExpressJS.
 
     * EMAIL (for emt)
     * PASSWORD (for emt)
-    * API_URL (optional) (default: http://localhost:3000)
+    * VITE_API_URL (optional) (default: http://localhost:3000)
     * SERVICE_PORT (optional) (default: 3000)
 
 ## Build 
