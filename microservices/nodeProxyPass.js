@@ -7,7 +7,7 @@ config();
 
 const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
-const port = process.env.SERVICE_PORT || 3000;
+const port = process.env.PORT || process.env.SERVICE_PORT || 3000;
 const baseUrl = "https://openapi.emtmadrid.es";
 const loginUrl = `${baseUrl}/v1/mobilitylabs/user/login`;
 const token = {
