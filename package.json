@@ -16,6 +16,7 @@
     "preview": "vite preview",
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore ."
   },
+  "heroku-run-build-script": false,
   "dependencies": {
     "@fawmi/vue-google-maps": "^0.9.4",
     "@rollup/plugin-replace": "^3.1.0",
