@@ -11,6 +11,7 @@
     "build:service": "yarn build:service:windows && yarn build:service:linux && yarn build:service:macos",
     "build:vite": "vite build",
     "build": "yarn run build:vite && yarn run build:service",
+    "start": "node -r esm microservices/nodeProxyPass.js",
     "ts:check": "vue-tsc --noEmit",
     "preview": "vite preview",
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore ."
