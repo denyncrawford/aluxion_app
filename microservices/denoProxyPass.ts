@@ -43,24 +43,23 @@ const login = async () => {
 
 // Main router
 
-app.use(async (ctx) => {
-  const { method, body, url: { pathname, search } } = ctx.request;
-  const url = pathname + search;
-  const { accessToken } = token;
+app.use(async (ctx) => {  
+  const { method, url: { pathname: url } } = ctx.request;
   if (!url.startsWith("/api")) {
     return ctx.response.body = `cannot ${method} ${url}`;
   }
   try {
     await login();
+    const { accessToken } = token;
     const { data } = await axios({
       method,
-      url: `${baseUrl}${url}`,
+      url: `${baseUrl}${url}`.replace("/api", ""),
       headers: {
         accessToken,
       },
-      data: body || undefined,
+      data: await ctx.request.body().value,
     });
-    ctx.response.body = data;
+    ctx.response.body = JSON.stringify(data);
   } catch (error) {
     console.log(error);
     ctx.response.status = 500;
