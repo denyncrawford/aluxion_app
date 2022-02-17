@@ -1,4 +1,4 @@
-import { createSSRApp } from "vue";
+import { createApp } from "vue";
 import { router } from "./router";
 import { addIcons, OhVueIcon } from "oh-vue-icons";
 import GoogleMaps from "@fawmi/vue-google-maps";
@@ -17,7 +17,7 @@ console.log(import.meta.env);
 
 addIcons(HiSearch, FaBusAlt);
 
-const app = createSSRApp(App);
+const app = createApp(App);
 
 app.use(router);
 app.use(createPinia());
